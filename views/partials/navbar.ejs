@@ -1,0 +1,59 @@
+<nav
+  style="
+    background: #2d0404;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: white;
+  "
+>
+  <style>
+    a {
+      color: white;
+      text-decoration: none;
+    }
+    a:hover {
+      color: yellow;
+    }
+  </style>
+  <ul style="gap: 2.5em">
+    <li>
+      <strong
+        style="
+          font-family: Verdana, Geneva, Tahoma, sans-serif;
+          font-size: xx-large;
+        "
+        ><a href="/">Picture Gallery Market</a></strong
+      >
+    </li>
+    <li>
+    <% if (typeof images !== 'undefined') { %>
+        <form role="search" style="margin: 0" action="/" method="GET">
+          <input
+            type="search"
+            name="search"
+            placeholder="Search"
+            aria-label="Search"
+            value="<%=typeof search !== 'undefined' ? search : '' %>"
+          />
+          <input
+            type="submit"
+            value="Search"
+            style="--pico-background-color: white; --pico-color: black"
+          />
+        </form>
+    <% } %>
+    </li>
+  </ul>
+  <ul>
+    <li>
+      <a href="/">Mostrar Imágenes</a>
+    </li>
+    <li>
+      <a href="/new-image">Agregar Imagen</a>
+    </li>
+    <li>
+      <a href="/about">Iniciar sesion</a>
+    </li>
+  </ul>
+</nav>

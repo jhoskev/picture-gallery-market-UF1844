@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Image</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+  </head>
+
+  <%- include('./partials/navbar') %>
+  <body>
+    <header style="display: flex; justify-content: space-between; padding: 1rem; align-items: center;">
+      <section>
+        <nav aria-label="breadcrumb">
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li>Agregar imagen</li>
+          </ul>
+        </nav>
+      </section>
+      <% if (message) { %> <% if (redirect) { %>
+      <script>
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 3000);
+      </script>
+      <% } %>
+      <section>
+        <p><%= message %></p>
+      </section>
+      <% } %>
+    </header>
+    <main class="container">
+      <h1>Agregar nueva imagen</h1>
+      <form action="/new-image" method="post">
+        <label for="title">Título: </label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          required
+          value="<%= data.title %>"
+        />
+
+        <label for="url">URL: </label>
+        <input
+          type="text"
+          required
+          name="url"
+          id="url"
+          value="<%= data.url %>"
+        />
+
+        <label for="date">Fecha: </label>
+        <input
+          type="date"
+          name="date"
+          id="date"
+          value="<%= data.date %>"
+          required
+        />
+
+        <label for="description">Descripción: </label>
+        <textarea
+          name="description"
+          id="description"
+          rows="3"
+          value="<%= data.description %>"
+        ></textarea>
+        <input
+          class="outline contrast"
+          type="submit"
+          value="Agregar Foto"
+          id="submit-btn"
+          style="background: #2d0404"
+        />
+      </form>
+    </main>
+    <footer class="container">
+      <p>© 2025 Picture Gallery Market</p>
+    </footer>
+  </body>
+</html>
